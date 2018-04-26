@@ -11,9 +11,9 @@
 var expect = require('chai-jasmine').expect;
 var rgba = require('../src/rgba.js');
 
-describe('rgb', function () {
+describe('rgba', function () {
     it('.parse', function () {
-        expect(rgba.parse('rgb(255, 255, 255, .1)')).toEqual({
+        expect(rgba.parse('rgba(255, 255, 255, .1)')).toEqual({
             r: 255,
             g: 255,
             b: 255,
@@ -40,7 +40,7 @@ describe('rgb', function () {
             g: 255,
             b: 255,
             a: 0.1
-        })).toEqual('rgb(255, 255, 255, 0.1)');
+        })).toEqual('rgba(255, 255, 255, 0.1)');
     });
 });
 

@@ -33,7 +33,7 @@ exports.parse = function (rgba) {
         r: round(matches[1]),
         g: round(matches[2]),
         b: round(matches[3]),
-        a: round(matches[4])
+        a: Number(matches[4])
     };
 };
 

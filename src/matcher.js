@@ -24,7 +24,8 @@ var CSS_UNIT = "(?:" + CSS_NUMBER + ")|(?:" + CSS_INTEGER + ")";
 var PERMISSIVE_MATCH3 = "[\\s|\\(]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")\\s*\\)?";
 var PERMISSIVE_MATCH4 = "[\\s|\\(]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")\\s*\\)?";
 
-var rgbaRE = new RegExp("rgba" + PERMISSIVE_MATCH3);
+var UNIT = '([^,\\s]+)';
+var SEPARATOR = ',\\s*';
 
 var re3Map = {};
 var re4Map = {};
@@ -36,7 +37,7 @@ var re4Map = {};
  * @returns {Array}
  */
 exports.match3 = function (prefix, string) {
-    var re = re3Map[prefix] || new RegExp(prefix + PERMISSIVE_MATCH3);
+    var re = re3Map[prefix] || new RegExp('^' + prefix + '\\(' + [UNIT, UNIT, UNIT].join(SEPARATOR) + '\\)$', 'i');
     return string.match(re);
 };
 
@@ -47,7 +48,7 @@ exports.match3 = function (prefix, string) {
  * @returns {Array}
  */
 exports.match4 = function (prefix, string) {
-    var re = re4Map[prefix] || new RegExp(prefix + PERMISSIVE_MATCH4);
+    var re = re4Map[prefix] || new RegExp('^' + prefix + '\\(' + [UNIT, UNIT, UNIT, UNIT].join(SEPARATOR) + '\\)$', 'i');
     return string.match(re);
 };
 
