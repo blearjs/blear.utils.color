@@ -19,6 +19,9 @@ describe('rgba', function () {
             b: 255,
             a: 0.1
         });
+        expect(function () {
+            rgba.parse('rgbaa(0, 0, 1)');
+        }).toThrow();
     });
 
     it('.hex', function () {

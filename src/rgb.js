@@ -23,11 +23,6 @@ var RGB = 'rgb';
  */
 exports.parse = function (rgb) {
     var matches = matcher.match3(RGB, rgb);
-
-    if (!matches) {
-        return null;
-    }
-
     return {
         r: round(matches[1]),
         g: round(matches[2]),

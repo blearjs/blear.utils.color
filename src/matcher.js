@@ -38,7 +38,13 @@ var re4Map = {};
  */
 exports.match3 = function (prefix, string) {
     var re = re3Map[prefix] || new RegExp('^' + prefix + '\\(' + [UNIT, UNIT, UNIT].join(SEPARATOR) + '\\)$', 'i');
-    return string.match(re);
+    var matches = string.match(re);
+
+    if (!matches) {
+        throw new SyntaxError('`' + string + '`颜色语法有误');
+    }
+
+    return matches;
 };
 
 /**
@@ -49,6 +55,12 @@ exports.match3 = function (prefix, string) {
  */
 exports.match4 = function (prefix, string) {
     var re = re4Map[prefix] || new RegExp('^' + prefix + '\\(' + [UNIT, UNIT, UNIT, UNIT].join(SEPARATOR) + '\\)$', 'i');
-    return string.match(re);
+    var matches = string.match(re);
+
+    if (!matches) {
+        throw new SyntaxError('`' + string + '`颜色语法有误');
+    }
+
+    return matches;
 };
 

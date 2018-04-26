@@ -18,6 +18,9 @@ describe('rgb', function () {
             g: 255,
             b: 255
         });
+        expect(function () {
+            rgb.parse('rgba(0, 0, 1)');
+        }).toThrow();
     });
 
     it('.hex', function () {

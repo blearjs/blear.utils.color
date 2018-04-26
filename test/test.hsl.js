@@ -18,6 +18,9 @@ describe('hsl', function () {
             l: 0,
             s: 1
         });
+        expect(function () {
+            hsl.parse('hsll(0, 0, 1)');
+        }).toThrow();
     });
 
     it('.hex', function () {
