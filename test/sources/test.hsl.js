@@ -18,6 +18,11 @@ describe('hsl', function () {
             s: 0,
             l: 1
         });
+        expect(hsl.parse('hsl(0, 37.78%, 100%)')).toEqual({
+            h: 0,
+            s: 0.3778,
+            l: 1
+        });
         expect(function () {
             hsl.parse('hsll(0, 0, 1)');
         }).toThrow();

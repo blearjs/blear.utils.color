@@ -16,7 +16,7 @@ var random = function (min, max) {
 
 var randomHsl = function () {
     return color.hsl.toHex({
-        h: random(1, 100) / 100,
+        h: random(0, 360),
         s: random(30, 90) / 100,
         l: random(30, 70) / 100
     });

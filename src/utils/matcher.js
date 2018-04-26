@@ -9,24 +9,11 @@
 'use strict';
 
 
-// <http://www.w3.org/TR/css3-values/#integers>
-var CSS_INTEGER = "[-\\+]?\\d+%?";
-
-// <http://www.w3.org/TR/css3-values/#number-value>
-var CSS_NUMBER = "[-\\+]?\\d*\\.\\d+%?";
-
-// Allow positive/negative integer/number.  Don't capture the either/or, just the entire outcome.
-var CSS_UNIT = "(?:" + CSS_NUMBER + ")|(?:" + CSS_INTEGER + ")";
-
-// Actual matching.
-// Parentheses and commas are optional, but not required.
-// Whitespace can take the place of commas or opening paren
-var PERMISSIVE_MATCH3 = "[\\s|\\(]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")\\s*\\)?";
-var PERMISSIVE_MATCH4 = "[\\s|\\(]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")[,|\\s]+(" + CSS_UNIT + ")\\s*\\)?";
+var array = require('blear.utils.array');
 
 var UNIT = '([^,\\s]+)';
 var SEPARATOR = ',\\s*';
-
+var percentRE = /%$/;
 var re3Map = {};
 var re4Map = {};
 
@@ -44,7 +31,7 @@ exports.match3 = function (prefix, string) {
         throw new SyntaxError('`' + string + '`颜色语法有误');
     }
 
-    return matches;
+    return percentToNumber(matches);
 };
 
 /**
@@ -61,6 +48,25 @@ exports.match4 = function (prefix, string) {
         throw new SyntaxError('`' + string + '`颜色语法有误');
     }
 
-    return matches;
+    return percentToNumber(matches);
 };
 
+
+/**
+ * 数值百分比转换为小数
+ * @param matches
+ * @returns {*}
+ */
+function percentToNumber(matches) {
+    return array.map(matches, function (match, index) {
+        if (index === 0) {
+            return match;
+        }
+
+        if (percentRE.test(match)) {
+            match = match.replace(percentRE, '') / 100;
+        }
+
+        return match;
+    });
+}

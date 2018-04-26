@@ -35,9 +35,9 @@ function parse(hsl) {
     var matches = matcher.match3(HSL, hsl);
 
     return {
-        h: round(matches[1]),
-        s: round(matches[2]),
-        l: round(matches[3])
+        h: matches[1] * 1,
+        s: matches[2] * 1,
+        l: matches[3] * 1
     };
 }
 
@@ -50,9 +50,9 @@ function parse(hsl) {
 function toHex(hsl) {
     var rgb = toRgb(hsl);
     return '#' + [
-        toString16(round(rgb.r)),
-        toString16(round(rgb.g)),
-        toString16(round(rgb.b))
+        toString16(rgb.r),
+        toString16(rgb.g),
+        toString16(rgb.b)
     ].join('');
 }
 
