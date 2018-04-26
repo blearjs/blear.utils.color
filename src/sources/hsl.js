@@ -63,7 +63,7 @@ function toHex(hsl) {
  * @returns {{r: Number, g: number, b: number}}
  */
 function toRgb(hsl) {
-    var h = hsl.h;
+    var h = hsl.h / 360;
     var s = hsl.s;
     var l = hsl.l;
     var r;

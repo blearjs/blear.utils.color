@@ -30,7 +30,7 @@ describe('hsl', function () {
             l: 1
         })).toEqual('#ffffff');
         expect(hsl.toHex({
-            h: 0.02483660130718954,
+            h: 9,
             s: 1,
             l: 0.5
         })).toEqual('#ff2600');
@@ -47,7 +47,7 @@ describe('hsl', function () {
             b: 255
         });
         expect(hsl.toRgb({
-            h: 0.02483660130718954,
+            h: 9,
             s: 1,
             l: 0.5
         })).toEqual({

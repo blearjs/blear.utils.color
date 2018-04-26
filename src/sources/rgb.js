@@ -88,7 +88,7 @@ function toHsl(rgb) {
     }
 
     return {
-        h: h,
+        h: h * 360,
         s: s,
         l: l
     };
