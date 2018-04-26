@@ -14,11 +14,10 @@
  * @returns {{r: number, g: number, b: number}}
  */
 module.exports = function (rgb) {
-    return {
-        r: 255 - rgb.r,
-        g: 255 - rgb.g,
-        b: 255 - rgb.b
-    };
+    rgb.r = 255 - rgb.r;
+    rgb.g = 255 - rgb.g;
+    rgb.b = 255 - rgb.b;
+    return rgb;
 };
 
 

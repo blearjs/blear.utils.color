@@ -1,0 +1,23 @@
+<!doctype html>
+
+<title>invert</title>
+
+<style>
+    #output {
+        width: 100px;
+        height: 30px;
+        border: 1px solid #000;
+        margin-bottom: 10px;
+    }
+
+    input[type=range] {
+        width: 300px;
+    }
+</style>
+
+<div id="output"></div><br>
+<input type="color" value="#000000" id="color"><br>
+
+<script src="/node_modules/coolie.js/coolie.js"
+        data-config="/examples/coolie-config.js"
+        data-main="invert.js"></script>
