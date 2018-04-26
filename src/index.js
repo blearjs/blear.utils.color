@@ -20,13 +20,13 @@ var lighten = require('./methods/lighten');
 var darken = require('./methods/darken');
 var whiten = require('./methods/whiten');
 var invert = require('./methods/invert');
-var black = require('./methods/black');
+var bright = require('./methods/bright');
 var mix = require('./methods/mix');
 
 var LIGHTEN = 'lighten';
 var DARKEN = 'darken';
 var WHITEN = 'whiten';
-var BLACK = 'black';
+var BRIGHT = 'bright';
 var INVERT = 'invert';
 var MIX = 'mix';
 
@@ -71,13 +71,13 @@ build(rgb, WHITEN, rgbToHsl, whiten, hslToRgb);
 build(rgba, WHITEN, rgbaToHsla, whiten, hslaToRgba);
 
 /**
- * @property black
+ * @property bright
  */
-build(hex, BLACK, hexToHsl, black, null);
-build(hsl, BLACK, null, black, null);
-build(hsla, BLACK, null, black, null);
-build(rgb, BLACK, rgbToHsl, black, null);
-build(rgba, BLACK, rgbaToHsla, black, null);
+build(hex, BRIGHT, hexToHsl, bright, null);
+build(hsl, BRIGHT, null, bright, null);
+build(hsla, BRIGHT, null, bright, null);
+build(rgb, BRIGHT, rgbToHsl, bright, null);
+build(rgba, BRIGHT, rgbaToHsla, bright, null);
 
 /**
  * @property invert

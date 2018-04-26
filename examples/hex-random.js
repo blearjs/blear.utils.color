@@ -30,10 +30,10 @@ var html = '';
 
 for (; start < end; start++) {
     var hex = randomHex();
-    var black = color.hex.black(hex);
+    var black = color.hex.bright(hex);
     html += '<li class="color" style="' +
         'background-color:' + hex + ';' +
-        'color: ' + (black ? 'white' : 'black') + ';' +
+        'color: ' + (black ? 'black' : 'white') + ';' +
         '">' +
         start +
         '</li>';
