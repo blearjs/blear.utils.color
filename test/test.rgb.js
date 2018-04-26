@@ -21,11 +21,19 @@ describe('rgb', function () {
     });
 
     it('.hex', function () {
-        expect(rgb.hex(255, 255, 255)).toEqual('#ffffff');
+        expect(rgb.hex({
+            r: 255,
+            g: 255,
+            b: 255
+        })).toEqual('#ffffff');
     });
 
     it('.hsl', function () {
-        expect(rgb.hsl(255, 255, 255)).toEqual({
+        expect(rgb.hsl({
+            r: 255,
+            g: 255,
+            b: 255
+        })).toEqual({
             h: 0,
             s: 0,
             l: 1

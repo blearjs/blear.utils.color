@@ -37,30 +37,27 @@ exports.parse = function (rgb) {
 
 /**
  * rgb 转换为 hex 字符串
- * @param r
- * @param g
- * @param b
+ * @param rgb {{r: number, g: number, b: number}}
  * @returns {string}
  */
-exports.hex = function (r, g, b) {
+exports.hex = function (rgb) {
     return '#' + [
-        toString16(round(r)),
-        toString16(round(g)),
-        toString16(round(b))
+        toString16(round(rgb.r)),
+        toString16(round(rgb.g)),
+        toString16(round(rgb.b))
     ].join('');
 };
 
 /**
  * rgb 转换为 hsl
- * @param r
- * @param g
- * @param b
+ * @link https://stackoverflow.com/a/9493060
+ * @param rgb
  * @returns {{h: Number, s: number, l: number}}
  */
-exports.hsl = function (r, g, b) {
-    r /= 255;
-    g /= 255;
-    b /= 255;
+exports.hsl = function (rgb) {
+    var r = rgb.r / 255;
+    var g = rgb.g / 255;
+    var b = rgb.b / 255;
     var max = Math.max(r, g, b);
     var min = Math.min(r, g, b);
     var h;

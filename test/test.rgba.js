@@ -22,11 +22,21 @@ describe('rgba', function () {
     });
 
     it('.hex', function () {
-        expect(rgba.hex(255, 255, 255, .1)).toEqual('#ffffff');
+        expect(rgba.hex({
+            r: 255,
+            g: 255,
+            b: 255,
+            a: 0.1
+        })).toEqual('#ffffff');
     });
 
-    it('.hsl', function () {
-        expect(rgba.hsl(255, 255, 255, .1)).toEqual({
+    it('.hsla', function () {
+        expect(rgba.hsla({
+            r: 255,
+            g: 255,
+            b: 255,
+            a: 0.1
+        })).toEqual({
             h: 0,
             s: 0,
             l: 1,

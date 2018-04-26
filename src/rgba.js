@@ -38,28 +38,22 @@ exports.parse = function (rgba) {
 };
 
 /**
- * rgb 转换为 hex 字符串
- * @param r
- * @param g
- * @param b
- * @param [a]
+ * rgba 转换为 hex 字符串
+ * @param rgba
  * @returns {string}
  */
-exports.hex = function (r, g, b, a) {
-    return rgb.hex(r, g, b);
+exports.hex = function (rgba) {
+    return rgb.hex(rgba);
 };
 
 /**
  * rgb 转换为 hsl
- * @param r
- * @param g
- * @param b
- * @param a
+ * @param rgba
  * @returns {{h: Number, s: number, l: number, a: number}}
  */
-exports.hsl = function (r, g, b, a) {
-    var hsla = rgb.hsl(r, g, b);
-    hsla.a = a;
+exports.hsla = function (rgba) {
+    var hsla = rgb.hsl(rgba);
+    hsla.a = rgba.a;
     return hsla;
 };
 
