@@ -20,14 +20,10 @@ var HSL = 'hsl';
 /**
  * 解析 hsl 颜色字符串为对象
  * @param hsl
- * @returns {null | {h: Number, s: number, l: number}}
+ * @returns {{h: Number, s: number, l: number}}
  */
 exports.parse = function (hsl) {
     var matches = matcher.match3(HSL, hsl);
-
-    if (!matches) {
-        return null;
-    }
 
     return {
         h: round(matches[1]),

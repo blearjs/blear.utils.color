@@ -20,14 +20,10 @@ var RGBA = 'rgba';
 /**
  * 解析 rgba 颜色字符串为对象
  * @param rgba
- * @returns {null | {r: Number, g: number, b: number, a: number}}
+ * @returns {{r: Number, g: number, b: number, a: number}}
  */
 exports.parse = function (rgba) {
     var matches = matcher.match4(RGBA, rgba);
-
-    if (!matches) {
-        return null;
-    }
 
     return {
         r: round(matches[1]),

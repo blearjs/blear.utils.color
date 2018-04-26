@@ -30,6 +30,14 @@ function toHSL(color) {
 
     switch (type) {
         case 'string':
+            if (/^#/.test(color)) {
+
+            } else if (/^rgb/i.test(color)) {
+
+            } else if (/^hsl/i.test(color)) {
+
+            }
+
             break;
 
         case 'array':
@@ -39,7 +47,7 @@ function toHSL(color) {
             break;
 
         default:
-            return null;
+            throw new SyntaxError('未知的颜色语法');
     }
 }
 

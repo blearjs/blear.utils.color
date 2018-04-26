@@ -22,14 +22,10 @@ var HSLA = 'hsla';
 /**
  * 解析 hsl 颜色字符串为对象
  * @param hsla
- * @returns {null | {h: Number, s: number, l: number, a: number}}
+ * @returns {{h: Number, s: number, l: number, a: number}}
  */
 exports.parse = function (hsla) {
     var matches = matcher.match4(HSLA, hsla);
-
-    if (!matches) {
-        return null;
-    }
 
     return {
         h: round(matches[1]),

@@ -19,7 +19,7 @@ var RGB = 'rgb';
 /**
  * 解析 rgb 颜色字符串为对象
  * @param rgb
- * @returns {null | {r: Number, g: number, b: number}}
+ * @returns {{r: Number, g: number, b: number}}
  */
 exports.parse = function (rgb) {
     var matches = matcher.match3(RGB, rgb);
