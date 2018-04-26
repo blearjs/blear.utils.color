@@ -12,15 +12,15 @@ var expect = require('chai-jasmine').expect;
 var rgba = require('../src/rgba.js');
 
 describe('rgba', function () {
-    it('main', function () {
-        expect(rgba('rgba(255, 255, 255, .1)')).toEqual({
+    it('.parse', function () {
+        expect(rgba.parse('rgba(255, 255, 255, .1)')).toEqual({
             r: 255,
             g: 255,
             b: 255,
             a: 0.1
         });
         expect(function () {
-            rgba('rgbaa(0, 0, 1)');
+            rgba.parse('rgbaa(0, 0, 1)');
         }).toThrow();
     });
 

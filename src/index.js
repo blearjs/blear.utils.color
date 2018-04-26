@@ -75,6 +75,6 @@ function hslDarken(hslColor, ratio) {
  * @returns {{h: Number, s: number, l: number}}
  */
 function hexToHsl(hexColor) {
-    return rgb.hsl(hex.parse(hexColor));
+    return rgb.toHsl(hex.parse(hexColor));
 }
 

@@ -17,10 +17,10 @@ var rgb = require('./rgb');
 
 var RGBA = 'rgba';
 
-parse.toHex = toHex;
-parse.toHsla = toHsla;
-parse.stringify = stringify;
-module.exports = parse;
+exports.parse = parse;
+exports.toHex = toHex;
+exports.toHsla = toHsla;
+exports.stringify = stringify;
 
 // ====================================
 

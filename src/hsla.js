@@ -18,10 +18,10 @@ var hsl = require('./hsl');
 
 var HSLA = 'hsla';
 
-parse.toHex = toHex;
-parse.toRgba = toRgba;
-parse.stringify = stringify;
-module.exports = parse;
+exports.parse = parse;
+exports.toHex = toHex;
+exports.toRgba = toRgba;
+exports.stringify = stringify;
 
 // ====================================
 

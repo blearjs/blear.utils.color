@@ -12,14 +12,14 @@ var expect = require('chai-jasmine').expect;
 var hsl = require('../src/hsl.js');
 
 describe('hsl', function () {
-    it('main', function () {
-        expect(hsl('hsl(0, 0, 1)')).toEqual({
+    it('.parse', function () {
+        expect(hsl.parse('hsl(0, 0, 1)')).toEqual({
             h: 0,
             s: 0,
             l: 1
         });
         expect(function () {
-            hsl('hsll(0, 0, 1)');
+            hsl.parse('hsll(0, 0, 1)');
         }).toThrow();
     });
 

@@ -10,9 +10,9 @@
 var expect = require('chai-jasmine').expect;
 var color = require('../src/index.js');
 
-describe('测试文件', function () {
+describe('index', function () {
     it('hex.lighten', function () {
-        color(color.hex.parse('#ff9900').lighten(0.3));
+        console.log(color.hex.lighten(0.3));
     });
 });
 

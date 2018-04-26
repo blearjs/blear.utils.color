@@ -18,10 +18,10 @@ var matcher = require('./matcher');
 var HSL = 'hsl';
 
 
-parse.toHex = toHex;
-parse.toRgb = toRgb;
-parse.stringify = stringify;
-module.exports = parse;
+exports.parse = parse;
+exports.toHex = toHex;
+exports.toRgb = toRgb;
+exports.stringify = stringify;
 
 
 // ====================================

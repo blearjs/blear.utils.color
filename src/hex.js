@@ -13,7 +13,7 @@ var string = require('blear.utils.string');
 
 var repeat = string.repeat;
 
-module.exports = parse;
+exports.parse = parse;
 
 // ====================================
 

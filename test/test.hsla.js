@@ -12,15 +12,15 @@ var expect = require('chai-jasmine').expect;
 var hsla = require('../src/hsla.js');
 
 describe('hsla', function () {
-    it('main', function () {
-        expect(hsla('hsla(0, 0, 1, .1)')).toEqual({
+    it('.parse', function () {
+        expect(hsla.parse('hsla(0, 0, 1, .1)')).toEqual({
             h: 0,
             l: 0,
             s: 1,
             a: 0.1
         });
         expect(function () {
-            hsla('hslal(0, 0, 1)');
+            hsla.parse('hslal(0, 0, 1)');
         }).toThrow();
     });
 
