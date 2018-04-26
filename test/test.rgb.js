@@ -41,6 +41,15 @@ describe('rgb', function () {
             s: 0,
             l: 1
         });
+        expect(rgb.hsl({
+            r: 255,
+            g: 38,
+            b: 0
+        })).toEqual({
+            h: 0.02483660130718954,
+            s: 1,
+            l: 0.5
+        });
     });
 
     it('.stringify', function () {

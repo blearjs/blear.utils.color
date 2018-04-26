@@ -9,45 +9,65 @@
 'use strict';
 
 var typeis = require('blear.utils.typeis');
+var array = require('blear.utils.array');
 
+var hex = require('./hex');
 var hsl = require('./hsl');
+var hsla = require('./hsla');
 var rgb = require('./rgb');
+var rgba = require('./rgba');
+var build = require('./build');
 
-exports.lighten = function (color, ratio) {
-    var hsl = toHSL(color);
-    hsl.color[2] += hsl.color[2] * ratio;
-    return hsl;
-};
+var LIGHTEN = 'lighten';
+var DARKEN = 'darken';
+
+/**
+ * @namespace hex
+ * @method lighten
+ */
+build(hex, LIGHTEN, hexToHsl, hslLighten, hsl.hex);
+
+/**
+ * @name darken
+ */
+build(hex, DARKEN, hexToHsl, hslDarken, hsl.hex);
+
+exports.hex = hex;
+exports.hsl = hsl;
+exports.hsla = hsla;
+exports.rgb = rgb;
+exports.rgba = rgba;
 
 
-exports.darken = function (color, ratio) {
+// ======================
+/**
+ * hsl 减浅
+ * @param hslColor
+ * @param ratio
+ * @returns {*}
+ */
+function hslLighten(hslColor, ratio) {
+    hslColor.l += hslColor.l * ratio;
+    return hslColor;
+}
 
-};
+/**
+ * hsl 加深
+ * @param hslColor
+ * @param ratio
+ * @returns {*}
+ */
+function hslDarken(hslColor, ratio) {
+    hslColor.l -= hslColor.l * ratio;
+    return hslColor;
+}
 
-
-function toHSL(color) {
-    var type = typeis(color);
-
-    switch (type) {
-        case 'string':
-            if (/^#/.test(color)) {
-
-            } else if (/^rgb/i.test(color)) {
-
-            } else if (/^hsl/i.test(color)) {
-
-            }
-
-            break;
-
-        case 'array':
-            break;
-
-        case 'object':
-            break;
-
-        default:
-            throw new SyntaxError('未知的颜色语法');
-    }
+/**
+ * hex 转换为 hsl
+ * @param hexColor
+ * @returns {{h: Number, s: number, l: number}}
+ */
+function hexToHsl(hexColor) {
+    return rgb.hsl(hex.parse(hexColor));
 }
 

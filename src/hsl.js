@@ -1,8 +1,8 @@
 /**
  * hls
  * 色相 （Hue）
- * 亮度/明度（Lightness）
  * 飽和度（Saturation）
+ * 亮度/明度（Lightness）
  * @author ydr.me
  * @create 2018-04-26 09:01
  * @update 2018-04-26 09:01
@@ -27,8 +27,8 @@ exports.parse = function (hsl) {
 
     return {
         h: round(matches[1]),
-        l: round(matches[2]),
-        s: round(matches[3])
+        s: round(matches[2]),
+        l: round(matches[3])
     };
 };
 
@@ -49,7 +49,7 @@ exports.hex = function (hsl) {
 
 /**
  * hsl 转换为 rgb
- * @link https://stackoverflow.com/a/9493060
+ * @link https://github.com/carloscabo/colz/blob/master/public/js/colz.class.js#L367
  * @param hsl
  * @returns {{r: Number, g: number, b: number}}
  */
@@ -64,8 +64,8 @@ var toRGB = exports.rgb = function (hsl) {
     if (s === 0) {
         r = g = b = l; // achromatic
     } else {
-        var q = s < 0.5 ? s * (1 + s) : s + s - s * s;
-        var p = 2 * s - q;
+        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        var p = 2 * l - q;
         r = hue2rgb(p, q, h + 1 / 3);
         g = hue2rgb(p, q, h);
         b = hue2rgb(p, q, h - 1 / 3);

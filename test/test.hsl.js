@@ -15,8 +15,8 @@ describe('hsl', function () {
     it('.parse', function () {
         expect(hsl.parse('hsl(0, 0, 1)')).toEqual({
             h: 0,
-            l: 0,
-            s: 1
+            s: 0,
+            l: 1
         });
         expect(function () {
             hsl.parse('hsll(0, 0, 1)');
@@ -40,6 +40,15 @@ describe('hsl', function () {
             r: 255,
             g: 255,
             b: 255
+        });
+        expect(hsl.rgb({
+            h: 0.02483660130718954,
+            s: 1,
+            l: 0.5
+        })).toEqual({
+            r: 255,
+            g: 38,
+            b: 0
         });
     });
 

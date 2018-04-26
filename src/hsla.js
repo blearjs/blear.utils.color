@@ -1,8 +1,8 @@
 /**
  * hls
  * 色相 （Hue）
- * 亮度/明度（Lightness）
  * 飽和度（Saturation）
+ * 亮度/明度（Lightness）
  * a（alpha）
  * @author ydr.me
  * @create 2018-04-26 09:01

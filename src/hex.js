@@ -9,6 +9,9 @@
 
 'use strict';
 
+var string = require('blear.utils.string');
+
+var repeat = string.repeat;
 
 /**
  * 解析 hex 颜色字符串为对象
@@ -18,9 +21,9 @@
 exports.parse = function (hex) {
     hex = hex.replace(/^#/, '');
     var half = hex.length === 3 ? 2 : 1;
-    var r = hex.slice(0, 2 / half);
-    var g = hex.slice(2 / half, 4 / half);
-    var b = hex.slice(6 / half, 6 / half);
+    var r = repeat(hex.slice(0, 2 / half), half);
+    var g = repeat(hex.slice(2 / half, 4 / half), half);
+    var b = repeat(hex.slice(4 / half, 6 / half), half);
 
     return {
         r: from16(r),

@@ -38,11 +38,15 @@
     "url": "https://github.com/blearjs/blear.utils.color/issues"
   },
   "dependencies": {
+    "blear.utils.access": "^1.0.5",
+    "blear.utils.array": "^1.0.12",
+    "blear.utils.string": "^1.0.9",
     "blear.utils.typeis": "^1.0.3"
   },
   "peerDependencies": {},
   "devDependencies": {
     "chai-jasmine": "1.0.7",
+    "coolie.js": "^2.2.3",
     "istanbul": "0.4.5",
     "mocha": "4.0.1"
   },
