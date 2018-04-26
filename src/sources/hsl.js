@@ -28,16 +28,17 @@ exports.stringify = stringify;
 
 /**
  * 解析 hsl 颜色字符串为对象
- * @param hsl
- * @returns {{h: Number, s: number, l: number}}
+ * @param str
+ * @returns {{h: Number, s: number, l: number, a: number}}
  */
-function parse(hsl) {
-    var matches = matcher.match3(HSL, hsl);
+function parse(str) {
+    var matches = matcher.hsla(str);
 
     return {
-        h: matches[1] * 1,
-        s: matches[2] * 1,
-        l: matches[3] * 1
+        h: matches[0],
+        s: matches[1],
+        l: matches[2],
+        a: matches[3]
     };
 }
 
@@ -60,7 +61,7 @@ function toHex(hsl) {
  * hsl 转换为 rgb
  * @link https://github.com/carloscabo/colz/blob/master/public/js/colz.class.js#L367
  * @param hsl
- * @returns {{r: Number, g: number, b: number}}
+ * @returns {{r: Number, g: number, b: number, a: number}}
  */
 function toRgb(hsl) {
     var h = hsl.h / 360;
@@ -83,7 +84,8 @@ function toRgb(hsl) {
     return {
         r: round(r * 255),
         g: round(g * 255),
-        b: round(b * 255)
+        b: round(b * 255),
+        a: hsl.a || 0
     };
 }
 

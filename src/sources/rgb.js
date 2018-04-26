@@ -27,41 +27,42 @@ exports.stringify = stringify;
 
 /**
  * 解析 rgb 颜色字符串为对象
- * @param rgb
- * @returns {{r: Number, g: number, b: number}}
+ * @param str
+ * @returns {{r: number, g: number, b: number, a: number}}
  */
-function parse(rgb) {
-    var matches = matcher.match3(RGB, rgb);
+function parse(str) {
+    var matches = matcher.rgba(str);
     return {
-        r: round(matches[1]),
-        g: round(matches[2]),
-        b: round(matches[3])
+        r: round(matches[0]),
+        g: round(matches[1]),
+        b: round(matches[2]),
+        a: round(matches[3])
     };
 }
 
 /**
  * rgb 转换为 hex 字符串
- * @param rgb {{r: number, g: number, b: number}}
+ * @param rgba {{r: number, g: number, b: number, a: number}}
  * @returns {string}
  */
-function toHex(rgb) {
+function toHex(rgba) {
     return '#' + [
-        toString16(round(rgb.r)),
-        toString16(round(rgb.g)),
-        toString16(round(rgb.b))
+        toString16(round(rgba.r)),
+        toString16(round(rgba.g)),
+        toString16(round(rgba.b))
     ].join('');
 }
 
 /**
  * rgb 转换为 hsl
  * @link https://stackoverflow.com/a/9493060
- * @param rgb
- * @returns {{h: Number, s: number, l: number}}
+ * @param rgba
+ * @returns {{h: Number, s: number, l: number, a: number}}
  */
-function toHsl(rgb) {
-    var r = rgb.r / 255;
-    var g = rgb.g / 255;
-    var b = rgb.b / 255;
+function toHsl(rgba) {
+    var r = rgba.r / 255;
+    var g = rgba.g / 255;
+    var b = rgba.b / 255;
     var max = Math.max(r, g, b);
     var min = Math.min(r, g, b);
     var h;
@@ -90,7 +91,8 @@ function toHsl(rgb) {
     return {
         h: h * 360,
         s: s,
-        l: l
+        l: l,
+        a: rgba.a || 0
     };
 }
 

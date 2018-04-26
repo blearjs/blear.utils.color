@@ -16,12 +16,14 @@ describe('hsl', function () {
         expect(hsl.parse('hsl(0, 0, 1)')).toEqual({
             h: 0,
             s: 0,
-            l: 1
+            l: 1,
+            a: 0
         });
         expect(hsl.parse('hsl(0, 37.78%, 100%)')).toEqual({
             h: 0,
             s: 0.3778,
-            l: 1
+            l: 1,
+            a: 0
         });
         expect(function () {
             hsl.parse('hsll(0, 0, 1)');
@@ -45,11 +47,13 @@ describe('hsl', function () {
         expect(hsl.toRgb({
             h: 0,
             s: 0,
-            l: 1
+            l: 1,
+            a: 0
         })).toEqual({
             r: 255,
             g: 255,
-            b: 255
+            b: 255,
+            a: 0
         });
         expect(hsl.toRgb({
             h: 9,
@@ -58,7 +62,8 @@ describe('hsl', function () {
         })).toEqual({
             r: 255,
             g: 38,
-            b: 0
+            b: 0,
+            a: 0
         });
     });
 

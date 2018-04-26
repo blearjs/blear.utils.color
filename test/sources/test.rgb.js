@@ -16,8 +16,12 @@ describe('rgb', function () {
         expect(rgb.parse('rgb(255, 255, 255)')).toEqual({
             r: 255,
             g: 255,
-            b: 255
+            b: 255,
+            a: 0
         });
+        expect(function () {
+            rgb.parse('rgb(0, 0, 1, 1)');
+        }).toThrow();
         expect(function () {
             rgb.parse('rgba(0, 0, 1)');
         }).toThrow();
@@ -44,7 +48,8 @@ describe('rgb', function () {
         })).toEqual({
             h: 0,
             s: 0,
-            l: 1
+            l: 1,
+            a: 0
         });
         expect(rgb.toHsl({
             r: 255,
@@ -53,16 +58,19 @@ describe('rgb', function () {
         })).toEqual({
             h: 8.941176470588236,
             s: 1,
-            l: 0.5
+            l: 0.5,
+            a: 0
         });
         expect(rgb.toHsl({
             r: 255,
             g: 0,
-            b: 0
+            b: 0,
+            a: 0.5
         })).toEqual({
             h: 0,
             s: 1,
-            l: 0.5
+            l: 0.5,
+            a: 0.5
         });
         expect(rgb.toHsl({
             r: 0,
@@ -71,7 +79,8 @@ describe('rgb', function () {
         })).toEqual({
             h: 120,
             s: 1,
-            l: 0.5
+            l: 0.5,
+            a: 0
         });
         expect(rgb.toHsl({
             r: 0,
@@ -80,7 +89,8 @@ describe('rgb', function () {
         })).toEqual({
             h: 240,
             s: 1,
-            l: 0.5
+            l: 0.5,
+            a: 0
         });
     });
 

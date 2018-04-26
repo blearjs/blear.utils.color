@@ -11,62 +11,60 @@
 
 var array = require('blear.utils.array');
 
-var UNIT = '([^,\\s]+)';
-var SEPARATOR = ',\\s*';
 var percentRE = /%$/;
-var re3Map = {};
-var re4Map = {};
+var alphaFlagRE = /a\s*\(/i;
+
+exports.rgba = buildExports('rgba');
+exports.hsla = buildExports('hsla');
+
+// ========================================
 
 /**
- * 匹配3个数值
+ * 构建正则表达式
  * @param prefix
- * @param string
- * @returns {Array}
+ * @returns {RegExp}
  */
-exports.match3 = function (prefix, string) {
-    var re = re3Map[prefix] || new RegExp('^' + prefix + '\\(' + [UNIT, UNIT, UNIT].join(SEPARATOR) + '\\)$', 'i');
-    var matches = string.match(re);
-
-    if (!matches) {
-        throw new SyntaxError('`' + string + '`颜色语法有误');
-    }
-
-    return percentToNumber(matches);
-};
-
-/**
- * 匹配4个数值
- * @param prefix
- * @param string
- * @returns {Array}
- */
-exports.match4 = function (prefix, string) {
-    var re = re4Map[prefix] || new RegExp('^' + prefix + '\\(' + [UNIT, UNIT, UNIT, UNIT].join(SEPARATOR) + '\\)$', 'i');
-    var matches = string.match(re);
-
-    if (!matches) {
-        throw new SyntaxError('`' + string + '`颜色语法有误');
-    }
-
-    return percentToNumber(matches);
-};
+function buildRE(prefix) {
+    return new RegExp(
+        '^' + prefix +
+        '?\\s*\\(\\s*(.*?)\\s*\\)$',
+        'i');
+}
 
 
 /**
- * 数值百分比转换为小数
- * @param matches
- * @returns {*}
+ * 构建出口
+ * @param type
  */
-function percentToNumber(matches) {
-    return array.map(matches, function (match, index) {
-        if (index === 0) {
-            return match;
+function buildExports(type) {
+    var re = buildRE(type);
+    return function (string) {
+        var matches = string.match(re);
+
+        if (!matches) {
+            throw new SyntaxError(type + ' 语法有误');
         }
 
-        if (percentRE.test(match)) {
-            match = match.replace(percentRE, '') / 100;
+        var alpha = alphaFlagRE.test(string);
+        var main = matches[1];
+        var splits = main.split(/\s*,\s*/);
+        var length = splits.length;
+
+        if (!(alpha && length === 4 || !alpha && length === 3)) {
+            throw new SyntaxError(type + ' 语法有误');
         }
 
-        return match;
-    });
+        var matches2 = [];
+
+        array.map(splits, function (match) {
+            if (percentRE.test(match)) {
+                match = match.replace(percentRE, '') / 100;
+            }
+
+            matches2.push(Number(match || 0));
+        });
+
+        matches2[3] = matches2[3] || 0;
+        return matches2;
+    };
 }
