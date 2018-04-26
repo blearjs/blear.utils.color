@@ -1,0 +1,25 @@
+<!doctype html>
+
+<title>mix</title>
+
+<style>
+    #output {
+        width: 100px;
+        height: 30px;
+        border: 1px solid #000;
+        margin-bottom: 10px;
+    }
+
+    input[type=range] {
+        width: 300px;
+    }
+</style>
+
+<div id="output"></div><br>
+<input type="color" value="#000000" id="color1"><br>
+<input type="color" value="#000000" id="color2"><br>
+weight<input type="range" min="0" max="1" id="range" value="0" step="0.001">
+
+<script src="/node_modules/coolie.js/coolie.js"
+        data-config="/examples/coolie-config.js"
+        data-main="mix.js"></script>

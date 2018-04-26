@@ -21,13 +21,20 @@ var defaultPipe = function (color) {
  * @param pre {Function} 前置方法
  * @param main {Function} 主方法
  * @param post {Function} 后置方法
+ * @param [inputColorLength=1] {Number} 颜色个数
  */
-module.exports = function (exports, key, pre, main, post) {
-    pre = pre ||defaultPipe;
+module.exports = function (exports, key, pre, main, post, inputColorLength) {
+    pre = pre || defaultPipe;
     post = post || defaultPipe;
-    exports[key] = function (color/*arguments*/) {
+    inputColorLength = inputColorLength || 1;
+    exports[key] = function () {
         var args = access.args(arguments);
-        args[0] = pre(color);
+        var start = 0;
+
+        for (; start < inputColorLength; start++) {
+            args[start] = pre(args[start]);
+        }
+
         return post(main.apply(null, args));
     };
 };

@@ -11,13 +11,15 @@
 /**
  * 反色
  * @param rgb
- * @returns {{r: number, g: number, b: number}}
+ * @returns {{r: number, g: number, b: number, a: number}}
  */
 module.exports = function (rgb) {
-    rgb.r = 255 - rgb.r;
-    rgb.g = 255 - rgb.g;
-    rgb.b = 255 - rgb.b;
-    return rgb;
+    return {
+        r: 255 - rgb.r,
+        g: 255 - rgb.g,
+        b: 255 - rgb.b,
+        a: rgb.a
+    };
 };
 
 

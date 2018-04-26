@@ -16,8 +16,12 @@
  * @returns {*}
  */
 module.exports = function(hsl, ratio) {
-    hsl.l -= hsl.l * ratio;
-    return hsl;
+    return {
+        h: hsl.h,
+        s: hsl.s,
+        l: hsl.l - hsl.l * ratio,
+        a: hsl.a
+    };
 };
 
 

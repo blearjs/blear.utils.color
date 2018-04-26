@@ -18,15 +18,17 @@ var build = require('./utils/build');
 
 var lighten = require('./methods/lighten');
 var darken = require('./methods/darken');
-var black = require('./methods/black');
 var whiten = require('./methods/whiten');
 var invert = require('./methods/invert');
+var black = require('./methods/black');
+var mix = require('./methods/mix');
 
 var LIGHTEN = 'lighten';
 var DARKEN = 'darken';
 var WHITEN = 'whiten';
 var BLACK = 'black';
 var INVERT = 'invert';
+var MIX = 'mix';
 
 var hexToRgb = hex.toRgb;
 var hexToHsl = hex.toHsl;
@@ -85,6 +87,17 @@ build(hsl, INVERT, hslToRgb, invert, rgbToHsl);
 build(hsla, INVERT, hslaToRgba, invert, rgbaToHsla);
 build(rgb, INVERT, null, invert, null);
 build(rgba, INVERT, null, invert, null);
+
+/**
+ * @property mix
+ */
+build(hex, MIX, hexToRgb, mix, rgbToHex, 2);
+build(hsl, MIX, hslToRgb, mix, rgbToHsl, 2);
+build(hsla, MIX, hslaToRgba, mix, rgbaToHsla, 2);
+build(rgb, MIX, null, mix, null);
+build(rgba, MIX, null, mix, null);
+
+
 
 exports.hex = hex;
 exports.hsl = hsl;
