@@ -9,7 +9,7 @@
 'use strict';
 
 var expect = require('chai-jasmine').expect;
-var hsl = require('../src/hsl.js');
+var hsl = require('../src/sources/hsl.js');
 
 describe('hsl', function () {
     it('.parse', function () {

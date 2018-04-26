@@ -13,7 +13,7 @@
 
 var string = require('blear.utils.string');
 
-var matcher = require('./matcher');
+var matcher = require('../utils/matcher');
 
 var RGB = 'rgb';
 

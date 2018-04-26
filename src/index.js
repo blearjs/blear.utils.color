@@ -8,15 +8,15 @@
 
 'use strict';
 
-var typeis = require('blear.utils.typeis');
-var array = require('blear.utils.array');
 
-var hex = require('./hex');
-var hsl = require('./hsl');
-var hsla = require('./hsla');
-var rgb = require('./rgb');
-var rgba = require('./rgba');
-var build = require('./build');
+var hex = require('./sources/hex');
+var hsl = require('./sources/hsl');
+var hsla = require('./sources/hsla');
+var rgb = require('./sources/rgb');
+var rgba = require('./sources/rgba');
+var build = require('./utils/build');
+var lighten = require('./methods/lighten');
+var darken = require('./methods/darken');
 
 var LIGHTEN = 'lighten';
 var DARKEN = 'darken';
@@ -24,20 +24,20 @@ var DARKEN = 'darken';
 /**
  * @property lighten
  */
-build(hex, LIGHTEN, hexToHsl, hslLighten, hsl.hex);
-build(hsl, LIGHTEN, null, hslDarken, null);
-build(hsla, LIGHTEN, null, hslDarken, null);
-build(rgb, LIGHTEN, rgb.hsl, hslDarken, hsl.rgb);
-build(rgba, LIGHTEN, rgba.hsla, hslDarken, hsla.rgba);
+build(hex, LIGHTEN, hex.toHsl, lighten, hsl.toHex);
+build(hsl, LIGHTEN, null, lighten, null);
+build(hsla, LIGHTEN, null, lighten, null);
+build(rgb, LIGHTEN, rgb.toHsl, lighten, hsl.toRgb);
+build(rgba, LIGHTEN, rgba.toHsla, lighten, hsla.toRgba);
 
 /**
  * @property darken
  */
-build(hex, DARKEN, hexToHsl, hslDarken, hsl.hex);
-build(hsl, DARKEN, null, hslDarken, null);
-build(hsla, DARKEN, null, hslDarken, null);
-build(rgb, DARKEN, rgb.hsl, hslDarken, hsl.rgb);
-build(rgba, DARKEN, rgba.hsla, hslDarken, hsla.rgba);
+build(hex, DARKEN, hex.toHsl, darken, hsl.toHex);
+build(hsl, DARKEN, null, darken, null);
+build(hsla, DARKEN, null, darken, null);
+build(rgb, DARKEN, rgb.toHsl, darken, hsl.toRgb);
+build(rgba, DARKEN, rgba.toHsla, darken, hsla.toRgba);
 
 exports.hex = hex;
 exports.hsl = hsl;
@@ -45,36 +45,4 @@ exports.hsla = hsla;
 exports.rgb = rgb;
 exports.rgba = rgba;
 
-
-// ======================
-/**
- * hsl 减浅
- * @param hslColor
- * @param ratio
- * @returns {*}
- */
-function hslLighten(hslColor, ratio) {
-    hslColor.l += hslColor.l * ratio;
-    return hslColor;
-}
-
-/**
- * hsl 加深
- * @param hslColor
- * @param ratio
- * @returns {*}
- */
-function hslDarken(hslColor, ratio) {
-    hslColor.l -= hslColor.l * ratio;
-    return hslColor;
-}
-
-/**
- * hex 转换为 hsl
- * @param hexColor
- * @returns {{h: Number, s: number, l: number}}
- */
-function hexToHsl(hexColor) {
-    return rgb.toHsl(hex.parse(hexColor));
-}
 

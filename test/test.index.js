@@ -12,7 +12,14 @@ var color = require('../src/index.js');
 
 describe('index', function () {
     it('hex.lighten', function () {
-        console.log(color.hex.lighten(0.3));
+        expect(
+            color.hex.lighten('#ff9900', 0.3)
+        ).toEqual('#ffb84d');
+    });
+    it('hex.darken', function () {
+        expect(
+            color.hex.darken('#ff9900', 0.3)
+        ).toEqual('#b36b00');
     });
 });
 

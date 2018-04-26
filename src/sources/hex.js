@@ -11,9 +11,12 @@
 
 var string = require('blear.utils.string');
 
+var rgb = require('./rgb');
+
 var repeat = string.repeat;
 
-exports.parse = parse;
+exports.toRgb = toRgb;
+exports.toHsl = toHsl;
 
 // ====================================
 
@@ -22,7 +25,7 @@ exports.parse = parse;
  * @param hex
  * @returns {{r: Number, g: number, b: number}}
  */
-function parse(hex) {
+function toRgb(hex) {
     hex = hex.replace(/^#/, '');
     var half = hex.length === 3 ? 2 : 1;
     var r = repeat(hex.slice(0, 2 / half), half);
@@ -34,6 +37,15 @@ function parse(hex) {
         g: from16(g),
         b: from16(b)
     };
+}
+
+/**
+ * 转换为 hsl
+ * @param hex
+ * @returns {*|{h: Number, s: number, l: number}}
+ */
+function toHsl(hex) {
+    return rgb.toHsl(toRgb(hex));
 }
 
 

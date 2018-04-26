@@ -9,7 +9,7 @@
 'use strict';
 
 var expect = require('chai-jasmine').expect;
-var rgb = require('../src/rgb.js');
+var rgb = require('../src/sources/rgb.js');
 
 describe('rgb', function () {
     it('.parse', function () {

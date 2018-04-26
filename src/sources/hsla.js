@@ -13,7 +13,7 @@
 'use strict';
 
 
-var matcher = require('./matcher');
+var matcher = require('../utils/matcher');
 var hsl = require('./hsl');
 
 var HSLA = 'hsla';

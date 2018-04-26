@@ -12,7 +12,7 @@
 
 'use strict';
 
-var matcher = require('./matcher');
+var matcher = require('../utils/matcher');
 var rgb = require('./rgb');
 
 var RGBA = 'rgba';
