@@ -1,5 +1,5 @@
 {
-  "name": "blear.MODULE_PATH.MODULE_NAME",
+  "name": "blear.utils.color",
   "version": "1.0.0",
   "description": "描述",
   "scripts": {
@@ -29,13 +29,13 @@
     "url": "https://ydr.me"
   },
   "contributors": [],
-  "homepage": "https://github.com/blearjs/blear.MODULE_PATH.MODULE_NAME",
+  "homepage": "https://github.com/blearjs/blear.utils.color",
   "repository": {
     "type": "git",
-    "url": "https://github.com/blearjs/blear.MODULE_PATH.MODULE_NAME"
+    "url": "https://github.com/blearjs/blear.utils.color"
   },
   "bugs": {
-    "url": "https://github.com/blearjs/blear.MODULE_PATH.MODULE_NAME/issues"
+    "url": "https://github.com/blearjs/blear.utils.color/issues"
   },
   "dependencies": {},
   "peerDependencies": {},
