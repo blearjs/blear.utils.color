@@ -19,6 +19,12 @@ var access = require('blear.utils.access');
  * @param post {Function} 后置方法
  */
 module.exports = function (exports, key, pre, main, post) {
+    pre = pre || function (color) {
+        return color;
+    };
+    post = post || function (color) {
+        return color;
+    };
     exports[key] = function (color/*arguments*/) {
         var args = access.args(arguments);
         args[0] = pre(color);
