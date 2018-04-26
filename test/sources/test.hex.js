@@ -9,7 +9,7 @@
 'use strict';
 
 var expect = require('chai-jasmine').expect;
-var hex = require('../src/sources/hex.js');
+var hex = require('../../src/sources/hex.js');
 
 describe('hex', function () {
     it('.toRgb', function () {

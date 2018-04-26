@@ -10,6 +10,10 @@
 
 var access = require('blear.utils.access');
 
+var defaultPipe = function (color) {
+    return color;
+};
+
 /**
  * 导出方法构建器
  * @param exports {Object}
@@ -19,12 +23,8 @@ var access = require('blear.utils.access');
  * @param post {Function} 后置方法
  */
 module.exports = function (exports, key, pre, main, post) {
-    pre = pre || function (color) {
-        return color;
-    };
-    post = post || function (color) {
-        return color;
-    };
+    pre = pre ||defaultPipe;
+    post = post || defaultPipe;
     exports[key] = function (color/*arguments*/) {
         var args = access.args(arguments);
         args[0] = pre(color);
