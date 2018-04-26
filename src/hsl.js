@@ -11,6 +11,7 @@
 
 'use strict';
 
+var string = require('blear.utils.string');
 
 var matcher = require('./matcher');
 
@@ -99,7 +100,7 @@ function round(num) {
 }
 
 function toString16(num) {
-    return num.toString(16);
+    return string.padStart(num.toString(16), 2, '0');
 }
 
 function hue2rgb(p, q, t) {

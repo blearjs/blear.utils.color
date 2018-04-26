@@ -29,6 +29,11 @@ describe('hsl', function () {
             s: 0,
             l: 1
         })).toEqual('#ffffff');
+        expect(hsl.hex({
+            h: 0.02483660130718954,
+            s: 1,
+            l: 0.5
+        })).toEqual('#ff2600');
     });
 
     it('.rgb', function () {

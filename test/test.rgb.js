@@ -29,6 +29,11 @@ describe('rgb', function () {
             g: 255,
             b: 255
         })).toEqual('#ffffff');
+        expect(rgb.hex({
+            r: 255,
+            g: 38,
+            b: 0
+        })).toEqual('#ff2600');
     });
 
     it('.hsl', function () {
