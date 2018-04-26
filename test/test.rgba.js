@@ -12,20 +12,20 @@ var expect = require('chai-jasmine').expect;
 var rgba = require('../src/rgba.js');
 
 describe('rgba', function () {
-    it('.parse', function () {
-        expect(rgba.parse('rgba(255, 255, 255, .1)')).toEqual({
+    it('main', function () {
+        expect(rgba('rgba(255, 255, 255, .1)')).toEqual({
             r: 255,
             g: 255,
             b: 255,
             a: 0.1
         });
         expect(function () {
-            rgba.parse('rgbaa(0, 0, 1)');
+            rgba('rgbaa(0, 0, 1)');
         }).toThrow();
     });
 
-    it('.hex', function () {
-        expect(rgba.hex({
+    it('.toHex', function () {
+        expect(rgba.toHex({
             r: 255,
             g: 255,
             b: 255,
@@ -33,8 +33,8 @@ describe('rgba', function () {
         })).toEqual('#ffffff');
     });
 
-    it('.hsla', function () {
-        expect(rgba.hsla({
+    it('.toHsla', function () {
+        expect(rgba.toHsla({
             r: 255,
             g: 255,
             b: 255,

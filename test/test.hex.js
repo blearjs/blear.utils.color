@@ -12,13 +12,13 @@ var expect = require('chai-jasmine').expect;
 var hex = require('../src/hex.js');
 
 describe('hex', function () {
-    it('.parse', function () {
-        expect(hex.parse('#ffffff')).toEqual({
+    it('main', function () {
+        expect(hex('#ffffff')).toEqual({
             r: 255,
             g: 255,
             b: 255
         });
-        expect(hex.parse('#fff')).toEqual({
+        expect(hex('#fff')).toEqual({
             r: 255,
             g: 255,
             b: 255

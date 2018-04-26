@@ -8,10 +8,11 @@
 'use strict';
 
 var expect = require('chai-jasmine').expect;
-var index = require('../src/index.js');
+var color = require('../src/index.js');
 
 describe('测试文件', function () {
-    it('base', function () {
+    it('hex.lighten', function () {
+        color(color.hex.parse('#ff9900').lighten(0.3));
     });
 });
 

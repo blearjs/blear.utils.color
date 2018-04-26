@@ -13,12 +13,16 @@ var string = require('blear.utils.string');
 
 var repeat = string.repeat;
 
+module.exports = parse;
+
+// ====================================
+
 /**
  * 解析 hex 颜色字符串为对象
  * @param hex
  * @returns {{r: Number, g: number, b: number}}
  */
-exports.parse = function (hex) {
+function parse(hex) {
     hex = hex.replace(/^#/, '');
     var half = hex.length === 3 ? 2 : 1;
     var r = repeat(hex.slice(0, 2 / half), half);
@@ -30,10 +34,9 @@ exports.parse = function (hex) {
         g: from16(g),
         b: from16(b)
     };
-};
+}
 
 
-// ====================================
 function from16(num) {
     return parseInt(num, 16);
 }

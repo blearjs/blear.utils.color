@@ -22,15 +22,22 @@ var LIGHTEN = 'lighten';
 var DARKEN = 'darken';
 
 /**
- * @namespace hex
- * @method lighten
+ * @property lighten
  */
 build(hex, LIGHTEN, hexToHsl, hslLighten, hsl.hex);
+build(hsl, LIGHTEN, null, hslDarken, null);
+build(hsla, LIGHTEN, null, hslDarken, null);
+build(rgb, LIGHTEN, rgb.hsl, hslDarken, hsl.rgb);
+build(rgba, LIGHTEN, rgba.hsla, hslDarken, hsla.rgba);
 
 /**
- * @name darken
+ * @property darken
  */
 build(hex, DARKEN, hexToHsl, hslDarken, hsl.hex);
+build(hsl, DARKEN, null, hslDarken, null);
+build(hsla, DARKEN, null, hslDarken, null);
+build(rgb, DARKEN, rgb.hsl, hslDarken, hsl.rgb);
+build(rgba, DARKEN, rgba.hsla, hslDarken, hsla.rgba);
 
 exports.hex = hex;
 exports.hsl = hsl;

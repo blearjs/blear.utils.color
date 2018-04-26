@@ -17,33 +17,40 @@ var matcher = require('./matcher');
 
 var RGB = 'rgb';
 
+parse.toHex = toHex;
+parse.toHsl = toHsl;
+parse.stringify = stringify;
+module.exports = parse;
+
+
+// ====================================
 
 /**
  * 解析 rgb 颜色字符串为对象
  * @param rgb
  * @returns {{r: Number, g: number, b: number}}
  */
-exports.parse = function (rgb) {
+function parse(rgb) {
     var matches = matcher.match3(RGB, rgb);
     return {
         r: round(matches[1]),
         g: round(matches[2]),
         b: round(matches[3])
     };
-};
+}
 
 /**
  * rgb 转换为 hex 字符串
  * @param rgb {{r: number, g: number, b: number}}
  * @returns {string}
  */
-exports.hex = function (rgb) {
+function toHex(rgb) {
     return '#' + [
         toString16(round(rgb.r)),
         toString16(round(rgb.g)),
         toString16(round(rgb.b))
     ].join('');
-};
+}
 
 /**
  * rgb 转换为 hsl
@@ -51,7 +58,7 @@ exports.hex = function (rgb) {
  * @param rgb
  * @returns {{h: Number, s: number, l: number}}
  */
-exports.hsl = function (rgb) {
+function toHsl(rgb) {
     var r = rgb.r / 255;
     var g = rgb.g / 255;
     var b = rgb.b / 255;
@@ -85,7 +92,7 @@ exports.hsl = function (rgb) {
         s: s,
         l: l
     };
-};
+}
 
 
 /**
@@ -93,15 +100,14 @@ exports.hsl = function (rgb) {
  * @param rgb
  * @returns {string}
  */
-exports.stringify = function (rgb) {
+function stringify(rgb) {
     return RGB + '(' + [
         rgb.r,
         rgb.g,
         rgb.b
     ].join(', ') + ')';
-};
+}
 
-// ====================================
 
 function round(num) {
     return Math.round(num);

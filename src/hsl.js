@@ -18,12 +18,20 @@ var matcher = require('./matcher');
 var HSL = 'hsl';
 
 
+parse.toHex = toHex;
+parse.toRgb = toRgb;
+parse.stringify = stringify;
+module.exports = parse;
+
+
+// ====================================
+
 /**
  * 解析 hsl 颜色字符串为对象
  * @param hsl
  * @returns {{h: Number, s: number, l: number}}
  */
-exports.parse = function (hsl) {
+function parse(hsl) {
     var matches = matcher.match3(HSL, hsl);
 
     return {
@@ -31,7 +39,7 @@ exports.parse = function (hsl) {
         s: round(matches[2]),
         l: round(matches[3])
     };
-};
+}
 
 
 /**
@@ -39,14 +47,14 @@ exports.parse = function (hsl) {
  * @param hsl
  * @returns {string}
  */
-exports.hex = function (hsl) {
-    var rgb = toRGB(hsl);
+function toHex(hsl) {
+    var rgb = toRgb(hsl);
     return '#' + [
         toString16(round(rgb.r)),
         toString16(round(rgb.g)),
         toString16(round(rgb.b))
     ].join('');
-};
+}
 
 /**
  * hsl 转换为 rgb
@@ -54,7 +62,7 @@ exports.hex = function (hsl) {
  * @param hsl
  * @returns {{r: Number, g: number, b: number}}
  */
-var toRGB = exports.rgb = function (hsl) {
+function toRgb(hsl) {
     var h = hsl.h;
     var s = hsl.s;
     var l = hsl.l;
@@ -77,7 +85,7 @@ var toRGB = exports.rgb = function (hsl) {
         g: round(g * 255),
         b: round(b * 255)
     };
-};
+}
 
 
 /**
@@ -85,15 +93,14 @@ var toRGB = exports.rgb = function (hsl) {
  * @param hsl
  * @returns {string}
  */
-exports.stringify = function (hsl) {
+function stringify(hsl) {
     return HSL + '(' + [
         hsl.h,
         hsl.s,
         hsl.l
     ].join(', ') + ')';
-};
+}
 
-// ====================================
 
 function round(num) {
     return Math.round(num);

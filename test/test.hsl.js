@@ -12,32 +12,32 @@ var expect = require('chai-jasmine').expect;
 var hsl = require('../src/hsl.js');
 
 describe('hsl', function () {
-    it('.parse', function () {
-        expect(hsl.parse('hsl(0, 0, 1)')).toEqual({
+    it('main', function () {
+        expect(hsl('hsl(0, 0, 1)')).toEqual({
             h: 0,
             s: 0,
             l: 1
         });
         expect(function () {
-            hsl.parse('hsll(0, 0, 1)');
+            hsl('hsll(0, 0, 1)');
         }).toThrow();
     });
 
-    it('.hex', function () {
-        expect(hsl.hex({
+    it('.toHex', function () {
+        expect(hsl.toHex({
             h: 0,
             s: 0,
             l: 1
         })).toEqual('#ffffff');
-        expect(hsl.hex({
+        expect(hsl.toHex({
             h: 0.02483660130718954,
             s: 1,
             l: 0.5
         })).toEqual('#ff2600');
     });
 
-    it('.rgb', function () {
-        expect(hsl.rgb({
+    it('.toRgb', function () {
+        expect(hsl.toRgb({
             h: 0,
             s: 0,
             l: 1
@@ -46,7 +46,7 @@ describe('hsl', function () {
             g: 255,
             b: 255
         });
-        expect(hsl.rgb({
+        expect(hsl.toRgb({
             h: 0.02483660130718954,
             s: 1,
             l: 0.5
