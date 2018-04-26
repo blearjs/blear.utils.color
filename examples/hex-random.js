@@ -14,11 +14,13 @@ var random = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-var randomHsl = function () {
+var ratio = 0.618033988749895;
+var randomHex = function () {
+    var l = random(0, 100) / 100;
     return color.hsl.toHex({
         h: random(0, 360),
-        s: random(30, 90) / 100,
-        l: random(30, 70) / 100
+        s: random(0, 100) / 100,
+        l: l
     });
 };
 
@@ -27,7 +29,12 @@ var end = 100;
 var html = '';
 
 for (; start < end; start++) {
-    html += '<li class="color" style="background-color:' + randomHsl() + '">' +
+    var hex = randomHex();
+    var black = color.hex.black(hex);
+    html += '<li class="color" style="' +
+        'background-color:' + hex + ';' +
+        'color: ' + (black ? 'white' : 'black') + ';' +
+        '">' +
         start +
         '</li>';
 }

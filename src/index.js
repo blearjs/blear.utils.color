@@ -15,11 +15,14 @@ var hsla = require('./sources/hsla');
 var rgb = require('./sources/rgb');
 var rgba = require('./sources/rgba');
 var build = require('./utils/build');
+
 var lighten = require('./methods/lighten');
 var darken = require('./methods/darken');
+var black = require('./methods/black');
 
 var LIGHTEN = 'lighten';
 var DARKEN = 'darken';
+var BLACK = 'black';
 
 /**
  * @property lighten
@@ -38,6 +41,15 @@ build(hsl, DARKEN, null, darken, null);
 build(hsla, DARKEN, null, darken, null);
 build(rgb, DARKEN, rgb.toHsl, darken, hsl.toRgb);
 build(rgba, DARKEN, rgba.toHsla, darken, hsla.toRgba);
+
+/**
+ * @property black
+ */
+build(hex, BLACK, hex.toHsl, black, null);
+build(hsl, BLACK, null, black, null);
+build(hsla, BLACK, null, black, null);
+build(rgb, BLACK, rgb.toHsl, black, null);
+build(rgba, BLACK, rgba.toHsla, black, null);
 
 exports.hex = hex;
 exports.hsl = hsl;
