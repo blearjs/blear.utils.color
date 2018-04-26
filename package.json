@@ -1,7 +1,7 @@
 {
   "name": "blear.utils.color",
   "version": "1.0.0",
-  "description": "描述",
+  "description": "color utils",
   "scripts": {
     "live": "browser-sync start --config bs-config.js",
     "test-travis": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly",
