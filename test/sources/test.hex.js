@@ -13,12 +13,12 @@ var hex = require('../../src/sources/hex.js');
 
 describe('hex', function () {
     it('.toRgb', function () {
-        expect(hex.toRgb('#ffffff')).toEqual({
+        expect(hex.toRgba('#ffffff')).toEqual({
             r: 255,
             g: 255,
             b: 255
         });
-        expect(hex.toRgb('#fff')).toEqual({
+        expect(hex.toRgba('#fff')).toEqual({
             r: 255,
             g: 255,
             b: 255

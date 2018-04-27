@@ -9,31 +9,31 @@
 'use strict';
 
 var expect = require('chai-jasmine').expect;
-var rgb = require('../../src/sources/rgba.js');
+var rgba = require('../../src/sources/rgba.js');
 
-describe('rgb', function () {
+describe('rgba', function () {
     it('.parse', function () {
-        expect(rgb.parse('rgb(255, 255, 255)')).toEqual({
+        expect(rgba.parse('rgb(255, 255, 255)')).toEqual({
             r: 255,
             g: 255,
             b: 255,
             a: 0
         });
         expect(function () {
-            rgb.parse('rgb(0, 0, 1, 1)');
+            rgba.parse('rgb(0, 0, 1, 1)');
         }).toThrow();
         expect(function () {
-            rgb.parse('rgba(0, 0, 1)');
+            rgba.parse('rgba(0, 0, 1)');
         }).toThrow();
     });
 
     it('.toHex', function () {
-        expect(rgb.toHex({
+        expect(rgba.toHex({
             r: 255,
             g: 255,
             b: 255
         })).toEqual('#ffffff');
-        expect(rgb.toHex({
+        expect(rgba.toHex({
             r: 255,
             g: 38,
             b: 0
@@ -41,7 +41,7 @@ describe('rgb', function () {
     });
 
     it('.toHsl', function () {
-        expect(rgb.toHsla({
+        expect(rgba.toHsla({
             r: 255,
             g: 255,
             b: 255
@@ -51,7 +51,7 @@ describe('rgb', function () {
             l: 1,
             a: 0
         });
-        expect(rgb.toHsla({
+        expect(rgba.toHsla({
             r: 255,
             g: 38,
             b: 0
@@ -61,7 +61,7 @@ describe('rgb', function () {
             l: 0.5,
             a: 0
         });
-        expect(rgb.toHsla({
+        expect(rgba.toHsla({
             r: 255,
             g: 0,
             b: 0,
@@ -72,7 +72,7 @@ describe('rgb', function () {
             l: 0.5,
             a: 0.5
         });
-        expect(rgb.toHsla({
+        expect(rgba.toHsla({
             r: 0,
             g: 255,
             b: 0
@@ -82,7 +82,7 @@ describe('rgb', function () {
             l: 0.5,
             a: 0
         });
-        expect(rgb.toHsla({
+        expect(rgba.toHsla({
             r: 0,
             g: 0,
             b: 255
@@ -95,7 +95,7 @@ describe('rgb', function () {
     });
 
     it('.stringify', function () {
-        expect(rgb.stringify({
+        expect(rgba.stringify({
             r: 255,
             g: 255,
             b: 255

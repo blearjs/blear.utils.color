@@ -10,16 +10,16 @@
 
 /**
  * 白度
- * @param hsl
+ * @param hsla
  * @param amount
  * @returns {{h: number, s: number, l: number, a: number}}
  */
-module.exports = function (hsl, amount) {
+module.exports = function (hsla, amount) {
     return {
-        h: hsl.h,
-        s: hsl.s,
+        h: hsla.h,
+        s: hsla.s,
         l: amount,
-        a: hsl.a
+        a: hsla.a || 0
     };
 };
 

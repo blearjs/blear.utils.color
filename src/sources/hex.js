@@ -15,8 +15,8 @@ var rgb = require('./rgba');
 
 var repeat = string.repeat;
 
-exports.toRgb = toRgb;
-exports.toHsl = toHsl;
+exports.toRgba = toRgba;
+exports.toHsla = toHsla;
 
 // ====================================
 
@@ -25,7 +25,7 @@ exports.toHsl = toHsl;
  * @param hex
  * @returns {{r: Number, g: number, b: number}}
  */
-function toRgb(hex) {
+function toRgba(hex) {
     hex = hex.replace(/^#/, '');
     var half = hex.length === 3 ? 2 : 1;
     var r = repeat(hex.slice(0, 2 / half), half);
@@ -44,8 +44,8 @@ function toRgb(hex) {
  * @param hex
  * @returns {*|{h: Number, s: number, l: number}}
  */
-function toHsl(hex) {
-    return rgb.toHsla(toRgb(hex));
+function toHsla(hex) {
+    return rgb.toHsla(toRgba(hex));
 }
 
 

@@ -9,34 +9,34 @@
 'use strict';
 
 var expect = require('chai-jasmine').expect;
-var hsl = require('../../src/sources/hsla.js');
+var hsla = require('../../src/sources/hsla.js');
 
-describe('hsl', function () {
+describe('hsla', function () {
     it('.parse', function () {
-        expect(hsl.parse('hsl(0, 0, 1)')).toEqual({
+        expect(hsla.parse('hsl(0, 0, 1)')).toEqual({
             h: 0,
             s: 0,
             l: 1,
             a: 0
         });
-        expect(hsl.parse('hsl(0, 37.78%, 100%)')).toEqual({
+        expect(hsla.parse('hsl(0, 37.78%, 100%)')).toEqual({
             h: 0,
             s: 0.3778,
             l: 1,
             a: 0
         });
         expect(function () {
-            hsl.parse('hsll(0, 0, 1)');
+            hsla.parse('hsll(0, 0, 1)');
         }).toThrow();
     });
 
     it('.toHex', function () {
-        expect(hsl.toHex({
+        expect(hsla.toHex({
             h: 0,
             s: 0,
             l: 1
         })).toEqual('#ffffff');
-        expect(hsl.toHex({
+        expect(hsla.toHex({
             h: 9,
             s: 1,
             l: 0.5
@@ -44,7 +44,7 @@ describe('hsl', function () {
     });
 
     it('.toRgb', function () {
-        expect(hsl.toRgba({
+        expect(hsla.toRgba({
             h: 0,
             s: 0,
             l: 1,
@@ -55,7 +55,7 @@ describe('hsl', function () {
             b: 255,
             a: 0
         });
-        expect(hsl.toRgba({
+        expect(hsla.toRgba({
             h: 9,
             s: 1,
             l: 0.5
@@ -68,7 +68,7 @@ describe('hsl', function () {
     });
 
     it('.stringify', function () {
-        expect(hsl.stringify({
+        expect(hsla.stringify({
             h: 0,
             s: 0,
             l: 1
