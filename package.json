@@ -1,6 +1,6 @@
 {
   "name": "blear.utils.color",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "color utils",
   "scripts": {
     "live": "browser-sync start --config bs-config.js",
