@@ -38,6 +38,18 @@ describe('rgba', function () {
             g: 38,
             b: 0
         })).toEqual('#ff2600');
+        expect(rgba.toHex({
+            r: 1,
+            g: 22,
+            b: 123,
+            a: 1
+        })).toEqual('#01167b');
+        expect(rgba.toHex({
+            r: 90,
+            g: 12,
+            b: 311,
+            a: 0.6
+        })).toEqual('#5a0c1371');
     });
 
     it('.toHsl', function () {

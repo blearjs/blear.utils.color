@@ -47,11 +47,17 @@ function parse(str) {
  * @returns {string}
  */
 function toHex(rgba) {
-    return '#' + [
+    var hexList = [
         toString16(round(rgba.r)),
         toString16(round(rgba.g)),
         toString16(round(rgba.b))
-    ].join('');
+    ];
+
+    if (rgba.a < 1) {
+        hexList.push(round(rgba.a));
+    }
+
+    return '#' + hexList.join('');
 }
 
 /**
