@@ -14,6 +14,7 @@ module.exports = function (alpha) {
     }
 
     alpha = Number(alpha);
+    alpha = isNaN(alpha) ? 1 : alpha;
     alpha = Math.min(alpha, 1);
     alpha = Math.max(alpha, 0);
     return alpha;

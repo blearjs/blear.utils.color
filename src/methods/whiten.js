@@ -8,6 +8,8 @@
 
 'use strict';
 
+var alpha = require('../utils/alpha');
+
 /**
  * 白度
  * @param hsla
@@ -19,7 +21,7 @@ module.exports = function (hsla, amount) {
         h: hsla.h,
         s: hsla.s,
         l: amount,
-        a: hsla.a || 0
+        a: alpha(hsla.a)
     };
 };
 

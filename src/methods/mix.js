@@ -8,6 +8,8 @@
 
 'use strict';
 
+var alpha = require('../utils/alpha');
+
 /**
  * 混色
  * @ref https://github.com/Qix-/color/blob/master/index.js#L366
@@ -18,8 +20,8 @@
  */
 module.exports = function (rgba1, rgba2, weight) {
     var p = weight === undefined ? 0.5 : weight;
-    rgba1.a = rgba1.a || 0;
-    rgba2.a = rgba2.a || 0;
+    rgba1.a = alpha(rgba1.a);
+    rgba2.a = alpha(rgba2.a);
 
     var w = 2 * p - 1;
     var a = rgba1.a - rgba2.a;

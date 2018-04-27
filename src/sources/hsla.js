@@ -14,6 +14,7 @@
 var string = require('blear.utils.string');
 
 var matcher = require('../utils/matcher');
+var alpha = require('../utils/alpha');
 
 var Hsla = 'hsl';
 
@@ -89,7 +90,7 @@ function toRgba(hsl) {
         r: fixHue(round(r * 255)),
         g: round(g * 255),
         b: round(b * 255),
-        a: hsl.a || 0
+        a: alpha(hsl.a)
     };
 }
 

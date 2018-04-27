@@ -8,6 +8,7 @@
 
 'use strict';
 
+var alpha = require('../utils/alpha');
 
 /**
  * 加深
@@ -20,7 +21,7 @@ module.exports = function(hsla, ratio) {
         h: hsla.h,
         s: hsla.s,
         l: hsla.l - hsla.l * ratio,
-        a: hsla.a || 0
+        a: alpha(hsla.a)
     };
 };
 

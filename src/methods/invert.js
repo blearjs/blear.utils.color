@@ -8,6 +8,8 @@
 
 'use strict';
 
+var alpha = require('../utils/alpha');
+
 /**
  * 反色
  * @param rgba
@@ -18,7 +20,7 @@ module.exports = function (rgba) {
         r: 255 - rgba.r,
         g: 255 - rgba.g,
         b: 255 - rgba.b,
-        a: rgba.a || 0
+        a: alpha(rgba.a)
     };
 };
 

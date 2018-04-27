@@ -19,7 +19,7 @@ module.exports = function (hsla, amount) {
         h: hsla.h,
         s: hsla.s,
         l: 1 - amount,
-        a: hsla.a || 0
+        a: hsla.a || 1
     };
 };
 
