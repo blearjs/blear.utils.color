@@ -10,15 +10,15 @@
 
 /**
  * 反色
- * @param rgb
+ * @param rgba
  * @returns {{r: number, g: number, b: number, a: number}}
  */
-module.exports = function (rgb) {
+module.exports = function (rgba) {
     return {
-        r: 255 - rgb.r,
-        g: 255 - rgb.g,
-        b: 255 - rgb.b,
-        a: rgb.a
+        r: 255 - rgba.r,
+        g: 255 - rgba.g,
+        b: 255 - rgba.b,
+        a: rgba.a || 0
     };
 };
 

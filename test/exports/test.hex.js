@@ -11,13 +11,38 @@ var expect = require('chai-jasmine').expect;
 var hex = require('../../src/index.js').hex;
 
 describe('.hex', function () {
-    it('.black', function () {
+
+    it('.blacken', function () {
         expect(
-            hex.black('#841d24')
-        ).toEqual(true);
+            hex.blacken('#ff9900', 0.3)
+        ).toEqual('#ffc266');
         expect(
-            hex.black('#fbffce')
+            hex.blacken('#ff9900', 0)
+        ).toEqual('#ffffff');
+        expect(
+            hex.blacken('#ff9900', 1)
+        ).toEqual('#000000');
+    });
+
+    it('.bright', function () {
+        expect(
+            hex.bright('#841d24')
         ).toEqual(false);
+        expect(
+            hex.bright('#fbffce')
+        ).toEqual(true);
+    });
+
+    it('.darken', function () {
+        expect(
+            hex.darken('#ff9900', 0.3)
+        ).toEqual('#b36b00');
+    });
+
+    it('.invert', function () {
+        expect(
+            hex.invert('#ff9900')
+        ).toEqual('#0066ff');
     });
 
     it('.lighten', function () {
@@ -26,10 +51,27 @@ describe('.hex', function () {
         ).toEqual('#ffb84d');
     });
 
-    it('.darken', function () {
+    it('.mix', function () {
         expect(
-            hex.darken('#ff9900', 0.3)
-        ).toEqual('#b36b00');
+            hex.mix(
+                '#ff9900',
+                '#7ac2ff',
+                0.3
+            )
+        ).toEqual('#a2b6b3');
     });
+
+    it('.whiten', function () {
+        expect(
+            hex.whiten('#ff9900', 0.3)
+        ).toEqual('#995c00');
+        expect(
+            hex.whiten('#ff9900', 0)
+        ).toEqual('#000000');
+        expect(
+            hex.whiten('#ff9900', 1)
+        ).toEqual('#ffffff');
+    });
+
 });
 

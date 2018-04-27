@@ -11,16 +11,16 @@
 
 /**
  * 加深
- * @param hsl
+ * @param hsla
  * @param ratio
  * @returns {*}
  */
-module.exports = function(hsl, ratio) {
+module.exports = function(hsla, ratio) {
     return {
-        h: hsl.h,
-        s: hsl.s,
-        l: hsl.l - hsl.l * ratio,
-        a: hsl.a
+        h: hsla.h,
+        s: hsla.s,
+        l: hsla.l - hsla.l * ratio,
+        a: hsla.a || 0
     };
 };
 
