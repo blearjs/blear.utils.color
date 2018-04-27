@@ -43,7 +43,7 @@ describe('hsla', function () {
         })).toEqual('#ff2600');
     });
 
-    it('.toRgb', function () {
+    it('.toRgba', function () {
         expect(hsla.toRgba({
             h: 0,
             s: 0,
@@ -56,12 +56,12 @@ describe('hsla', function () {
             a: 0
         });
         expect(hsla.toRgba({
-            h: 9,
+            h: 399,
             s: 1,
             l: 0.5
         })).toEqual({
             r: 255,
-            g: 38,
+            g: 166,
             b: 0,
             a: 0
         });
