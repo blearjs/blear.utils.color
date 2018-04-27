@@ -45,11 +45,11 @@ describe('rgba', function () {
             a: 1
         })).toEqual('#01167b');
         expect(rgba.toHex({
-            r: 90,
-            g: 12,
-            b: 311,
-            a: 0.6
-        })).toEqual('#5a0c1371');
+            r: 1,
+            g: 3,
+            b: 5,
+            a: 0.7
+        })).toEqual('#010305b3');
     });
 
     it('.toHsl', function () {

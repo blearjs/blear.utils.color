@@ -54,7 +54,7 @@ function toHex(rgba) {
     ];
 
     if (rgba.a < 1) {
-        hexList.push(round(rgba.a));
+        hexList.push(toString16(round(rgba.a * 255)));
     }
 
     return '#' + hexList.join('');
