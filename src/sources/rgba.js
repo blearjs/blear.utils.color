@@ -19,7 +19,7 @@ var RGB = 'rgb';
 
 exports.parse = parse;
 exports.toHex = toHex;
-exports.toHsl = toHsl;
+exports.toHsla = toHsla;
 exports.stringify = stringify;
 
 
@@ -59,7 +59,7 @@ function toHex(rgba) {
  * @param rgba
  * @returns {{h: Number, s: number, l: number, a: number}}
  */
-function toHsl(rgba) {
+function toHsla(rgba) {
     var r = rgba.r / 255;
     var g = rgba.g / 255;
     var b = rgba.b / 255;

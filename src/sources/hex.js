@@ -11,7 +11,7 @@
 
 var string = require('blear.utils.string');
 
-var rgb = require('./rgb');
+var rgb = require('./rgba');
 
 var repeat = string.repeat;
 
@@ -45,7 +45,7 @@ function toRgb(hex) {
  * @returns {*|{h: Number, s: number, l: number}}
  */
 function toHsl(hex) {
-    return rgb.toHsl(toRgb(hex));
+    return rgb.toHsla(toRgb(hex));
 }
 
 

@@ -10,9 +10,7 @@
 
 
 var hex = require('./sources/hex');
-var hsl = require('./sources/hsl');
 var hsla = require('./sources/hsla');
-var rgb = require('./sources/rgb');
 var rgba = require('./sources/rgba');
 var build = require('./utils/build');
 
@@ -34,12 +32,12 @@ var hexToRgb = hex.toRgb;
 var hexToHsl = hex.toHsl;
 
 var hslToHex = hsl.toHex;
-var hslToRgb = hsl.toRgb;
+var hslToRgb = hsl.toRgba;
 
 var hslaToRgba = hsla.toRgba;
 
 var rgbToHex = rgb.toHex;
-var rgbToHsl = rgb.toHsl;
+var rgbToHsl = rgb.toHsla;
 
 var rgbaToHsla = rgba.toHsla;
 

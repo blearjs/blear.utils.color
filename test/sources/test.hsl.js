@@ -9,7 +9,7 @@
 'use strict';
 
 var expect = require('chai-jasmine').expect;
-var hsl = require('../../src/sources/hsl.js');
+var hsl = require('../../src/sources/hsla.js');
 
 describe('hsl', function () {
     it('.parse', function () {
@@ -44,7 +44,7 @@ describe('hsl', function () {
     });
 
     it('.toRgb', function () {
-        expect(hsl.toRgb({
+        expect(hsl.toRgba({
             h: 0,
             s: 0,
             l: 1,
@@ -55,7 +55,7 @@ describe('hsl', function () {
             b: 255,
             a: 0
         });
-        expect(hsl.toRgb({
+        expect(hsl.toRgba({
             h: 9,
             s: 1,
             l: 0.5

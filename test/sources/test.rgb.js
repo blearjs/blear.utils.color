@@ -9,7 +9,7 @@
 'use strict';
 
 var expect = require('chai-jasmine').expect;
-var rgb = require('../../src/sources/rgb.js');
+var rgb = require('../../src/sources/rgba.js');
 
 describe('rgb', function () {
     it('.parse', function () {
@@ -41,7 +41,7 @@ describe('rgb', function () {
     });
 
     it('.toHsl', function () {
-        expect(rgb.toHsl({
+        expect(rgb.toHsla({
             r: 255,
             g: 255,
             b: 255
@@ -51,7 +51,7 @@ describe('rgb', function () {
             l: 1,
             a: 0
         });
-        expect(rgb.toHsl({
+        expect(rgb.toHsla({
             r: 255,
             g: 38,
             b: 0
@@ -61,7 +61,7 @@ describe('rgb', function () {
             l: 0.5,
             a: 0
         });
-        expect(rgb.toHsl({
+        expect(rgb.toHsla({
             r: 255,
             g: 0,
             b: 0,
@@ -72,7 +72,7 @@ describe('rgb', function () {
             l: 0.5,
             a: 0.5
         });
-        expect(rgb.toHsl({
+        expect(rgb.toHsla({
             r: 0,
             g: 255,
             b: 0
@@ -82,7 +82,7 @@ describe('rgb', function () {
             l: 0.5,
             a: 0
         });
-        expect(rgb.toHsl({
+        expect(rgb.toHsla({
             r: 0,
             g: 0,
             b: 255

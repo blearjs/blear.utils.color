@@ -15,12 +15,12 @@ var string = require('blear.utils.string');
 
 var matcher = require('../utils/matcher');
 
-var HSL = 'hsl';
+var Hsla = 'hsl';
 
 
 exports.parse = parse;
 exports.toHex = toHex;
-exports.toRgb = toRgb;
+exports.toRgba = toRgba;
 exports.stringify = stringify;
 
 
@@ -49,7 +49,7 @@ function parse(str) {
  * @returns {string}
  */
 function toHex(hsl) {
-    var rgb = toRgb(hsl);
+    var rgb = toRgba(hsl);
     return '#' + [
         toString16(rgb.r),
         toString16(rgb.g),
@@ -63,7 +63,7 @@ function toHex(hsl) {
  * @param hsl
  * @returns {{r: Number, g: number, b: number, a: number}}
  */
-function toRgb(hsl) {
+function toRgba(hsl) {
     var h = hsl.h / 360;
     var s = hsl.s;
     var l = hsl.l;
@@ -96,7 +96,7 @@ function toRgb(hsl) {
  * @returns {string}
  */
 function stringify(hsl) {
-    return HSL + '(' + [
+    return Hsla + '(' + [
         hsl.h,
         hsl.s,
         hsl.l
