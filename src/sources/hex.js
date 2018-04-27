@@ -42,17 +42,17 @@ function toRgba(hex) {
             half = 2;
             a = repeat(hex.slice(3, 4), 2);
             break;
-        case 5:
-            half = 2;
-            a = hex.slice(3, 5);
-            break;
+        // case 5:
+        //     half = 2;
+        //     a = hex.slice(3, 5);
+        //     break;
         case 6:
             half = 1;
             break;
-        case 7:
-            half = 1;
-            a = repeat(hex.slice(6, 7), 2);
-            break;
+        // case 7:
+        //     half = 1;
+        //     a = repeat(hex.slice(6, 7), 2);
+        //     break;
         case 8:
             half = 1;
             a = hex.slice(6, 8);
