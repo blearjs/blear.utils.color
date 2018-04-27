@@ -17,13 +17,13 @@ describe('hsla', function () {
             h: 0,
             s: 0,
             l: 1,
-            a: 0
+            a: 1
         });
         expect(hsla.parse('hsl(0, 37.78%, 100%)')).toEqual({
             h: 0,
             s: 0.3778,
             l: 1,
-            a: 0
+            a: 1
         });
         expect(function () {
             hsla.parse('hsll(0, 0, 1)');
@@ -63,7 +63,7 @@ describe('hsla', function () {
             r: 255,
             g: 166,
             b: 0,
-            a: 0
+            a: 1
         });
     });
 

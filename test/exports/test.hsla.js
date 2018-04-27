@@ -23,7 +23,7 @@ describe('.hsla', function () {
             h: 1,
             s: 1,
             l: 0.7,
-            a: 0
+            a: 1
         });
     });
 
@@ -87,7 +87,7 @@ describe('.hsla', function () {
             h: 1,
             s: 1,
             l: 0.65,
-            a: 0
+            a: 1
         });
     });
 
@@ -106,7 +106,7 @@ describe('.hsla', function () {
             h: 23.368421052631582,
             s: 1,
             l: 0.18627450980392157,
-            a: 0
+            a: 1
         });
     });
 
@@ -121,7 +121,7 @@ describe('.hsla', function () {
             h: 1,
             s: 1,
             l: 0.3,
-            a: 0
+            a: 1
         });
     });
 

@@ -17,7 +17,7 @@ describe('rgba', function () {
             r: 255,
             g: 255,
             b: 255,
-            a: 0
+            a: 1
         });
         expect(function () {
             rgba.parse('rgb(0, 0, 1, 1)');
@@ -49,7 +49,7 @@ describe('rgba', function () {
             h: 0,
             s: 0,
             l: 1,
-            a: 0
+            a: 1
         });
         expect(rgba.toHsla({
             r: 255,
@@ -59,7 +59,7 @@ describe('rgba', function () {
             h: 8.941176470588236,
             s: 1,
             l: 0.5,
-            a: 0
+            a: 1
         });
         expect(rgba.toHsla({
             r: 255,
@@ -80,7 +80,7 @@ describe('rgba', function () {
             h: 120,
             s: 1,
             l: 0.5,
-            a: 0
+            a: 1
         });
         expect(rgba.toHsla({
             r: 0,
@@ -90,7 +90,7 @@ describe('rgba', function () {
             h: 240,
             s: 1,
             l: 0.5,
-            a: 0
+            a: 1
         });
     });
 

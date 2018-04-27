@@ -12,8 +12,8 @@ var matcher = require('../../src/utils/matcher');
 
 describe('index', function () {
     it('.rgba', function () {
-        expect(matcher.rgba('rgb(1,2,3)')).toEqual([1, 2, 3, 0]);
-        expect(matcher.rgba('rgb(1,2,3)')).toEqual([1, 2, 3, 0]);
+        expect(matcher.rgba('rgb(1,2,3)')).toEqual([1, 2, 3, 1]);
+        expect(matcher.rgba('rgb(1,2,3)')).toEqual([1, 2, 3, 1]);
         expect(matcher.rgba('rgba(1,2,3,1)')).toEqual([1, 2, 3, 1]);
         expect(matcher.rgba('rgba(1,2,3,1 )')).toEqual([1, 2, 3, 1]);
         expect(matcher.rgba('rgba(1,2,3, 1 )')).toEqual([1, 2, 3, 1]);
@@ -45,8 +45,8 @@ describe('index', function () {
     });
 
     it('.hsla', function () {
-        expect(matcher.hsla('hsl(1,2,3%)')).toEqual([1, 2, 0.03, 0]);
-        expect(matcher.hsla('hsl(0, 0, 1)')).toEqual([0, 0, 1, 0]);
+        expect(matcher.hsla('hsl(1,2,3%)')).toEqual([1, 2, 0.03, 1]);
+        expect(matcher.hsla('hsl(0, 0, 1)')).toEqual([0, 0, 1, 1]);
     });
 });
 

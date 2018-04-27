@@ -23,7 +23,7 @@ describe('.rgba', function () {
             r: 255,
             g: 255,
             b: 102,
-            a: 0
+            a: 1
         });
     });
 
@@ -64,7 +64,7 @@ describe('.rgba', function () {
             r: 0,
             g: 0,
             b: 255,
-            a: 0
+            a: 1
         });
     });
 
@@ -79,7 +79,7 @@ describe('.rgba', function () {
             r: 255,
             g: 255,
             b: 77,
-            a: 0
+            a: 1
         });
     });
 
