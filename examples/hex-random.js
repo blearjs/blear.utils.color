@@ -15,12 +15,13 @@ var random = function (min, max) {
 };
 
 var ratio = 0.618033988749895;
+var hueRatio = Math.random();
 var randomHex = function () {
-    var l = random(0, 100) / 100;
-    return color.hsl.toHex({
-        h: random(0, 360),
+    hueRatio += ratio;
+    return color.hsla.toHex({
+        h: hueRatio * 360 % 360,
         s: random(0, 100) / 100,
-        l: l
+        l: random(0, 100) / 100
     });
 };
 
