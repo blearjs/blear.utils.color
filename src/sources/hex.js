@@ -23,7 +23,7 @@ exports.toHsla = toHsla;
 /**
  * 解析 hex 颜色字符串为对象
  * @param hex
- * @returns {{r: Number, g: number, b: number}}
+ * @returns {{r: Number, g: number, b: number, a: number}}
  */
 function toRgba(hex) {
     hex = hex.replace(/^#/, '');
@@ -35,7 +35,8 @@ function toRgba(hex) {
     return {
         r: from16(r),
         g: from16(g),
-        b: from16(b)
+        b: from16(b),
+        a: 0
     };
 }
 

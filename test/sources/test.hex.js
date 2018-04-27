@@ -12,16 +12,18 @@ var expect = require('chai-jasmine').expect;
 var hex = require('../../src/sources/hex.js');
 
 describe('hex', function () {
-    it('.toRgb', function () {
+    it('.toRgba', function () {
         expect(hex.toRgba('#ffffff')).toEqual({
             r: 255,
             g: 255,
-            b: 255
+            b: 255,
+            a: 0
         });
         expect(hex.toRgba('#fff')).toEqual({
             r: 255,
             g: 255,
-            b: 255
+            b: 255,
+            a: 0
         });
     });
 });
