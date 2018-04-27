@@ -19,9 +19,9 @@ var hueRatio = Math.random();
 var randomHex = function () {
     hueRatio += ratio;
     return color.hsla.toHex({
-        h: hueRatio * 360 % 360,
-        s: random(0, 100) / 100,
-        l: random(0, 100) / 100
+        h: random(0, 360),
+        s: random(60, 80) / 100,
+        l: random(60, 80) / 100
     });
 };
 

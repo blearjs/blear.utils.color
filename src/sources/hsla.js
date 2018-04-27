@@ -22,6 +22,10 @@ exports.parse = parse;
 exports.toHex = toHex;
 exports.toRgba = toRgba;
 exports.stringify = stringify;
+exports.redHueRange = [270, 389];
+exports.greenHueRange = [30, 149];
+exports.blueHueRange = [150, 269];
+
 
 
 // ====================================
@@ -35,7 +39,7 @@ function parse(str) {
     var matches = matcher.hsla(str);
 
     return {
-        h: matches[0],
+        h: fixHue(matches[0]),
         s: matches[1],
         l: matches[2],
         a: matches[3]
@@ -82,7 +86,7 @@ function toRgba(hsl) {
     }
 
     return {
-        r: round(r * 255),
+        r: fixHue(round(r * 255)),
         g: round(g * 255),
         b: round(b * 255),
         a: hsl.a || 0
@@ -121,3 +125,7 @@ function hue2rgb(p, q, t) {
     return p;
 }
 
+
+function fixHue(hue) {
+    return hue % 360;
+}
